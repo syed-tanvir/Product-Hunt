@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ <div id="container" class="container">
+            <div class="row text-dark">
+                <div class="col-sm-6 offset-sm-3 text-center">
+                   <h3 class="display-4" style='margin-bottom: 30;'>Login</h3>
+                  <h1> {{ error }} </h1>
+                    <div class="info-form">
+                        <form method="POST" action="{% url 'login' %}" class="form-inlin justify-content-center">
+                        	{% csrf_token %}
+                            <div class="form-group">
+                                <label class="sr-only">Username</label>
+                                <input type="text" name='username' class="form-control" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Password</label>
+                                <input type="text" name='password' class="form-control" placeholder="Password">
+                            </div>
+                             
+                            <button type="submit" class="btn btn-success ">Login</button>
+                        </form>
+                    </div>
+                    <br>
+
+                  
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
