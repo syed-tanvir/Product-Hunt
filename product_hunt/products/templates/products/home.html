@@ -1,2 +1,35 @@
 {% extends 'base.html' %}
 
+{% block content %}
+
+{% for product in products.all %}
+
+<div class="row pt-3">
+<div class="col-2" onclick="window.location='{% url 'details' product.id %}'">
+	<img src="{{ product.icon.url }}" class="img-fluid">
+</div>
+<div class="col-6">
+
+<h4 onclick="window.location='{% url 'details' product.id %}'">{{ product.title}}</h4>
+<p onclick="window.location='{% url 'details' product.id %}'">{{ product.summary }}</p>
+
+</div>
+<div class="col-4">
+		<a href='javascript:{document.getElementById("upvote1").submit() }'><button class="btn btn-primary btn-lg btn-block">
+			<i class='fa fa-caret-up'> Upvote {{ product.votes }}</i></button></a>
+</div>
+
+	</div>
+
+
+
+<form id='upvote1' method="POST" action="{% url 'upvote' product.id %}">
+	{% csrf_token %}
+	<input type="hidden" name="">
+</form>
+
+{% endfor %}
+
+
+{% endblock %}
+
