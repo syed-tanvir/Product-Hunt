@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ <div id="container" class="container">
+            <div class="row text-dark">
+                <div class="col-sm-6 offset-sm-3 text-center">
+                   <h3 class="display-4" style='margin-bottom: 30;'>Create</h3>
+                    {{ error }}
+                    <div class="info-form">
+                        <form method="POST" action="{% url 'create' %}" class="form-inlin justify-content-center" enctype="multipart/form-data">
+                        	{% csrf_token %}
+                            <div class="form-group">
+                                <label class="sr-only">Title</label>
+                                <input type="text" name='title' class="form-control" placeholder="title">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Body</label>
+                                <input type="text" name='body' class="form-control" placeholder="body">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="sr-only">Url</label>
+                                <input type="text" name='url' class="form-control" placeholder="url">
+                            </div>
+                              <div class="form-group">
+                                <label class="sr-only">Icon</label>
+                                <input type="file" name='icon' class="form-control" placeholder="">
+                            </div>
+                              <div class="form-group">
+                                <label class="sr-only">Image</label>
+                                <input type="file" name='image' class="form-control" placeholder="">
+                            </div>
+                             
+                            <button type="submit" class="btn btn-success ">Upload</button>
+                        </form>
+                    </div>
+                    <br>
+
+                  
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
